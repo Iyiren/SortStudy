@@ -6,17 +6,23 @@ void selectSort(unsigned int array[], unsigned int size)
 	for (i = 0; i < size - 1; i++)
 	{
 		unsigned int min = array[i];
-		unsigned int temp = array[i];
-		for (j = i + 1; j < size - 1; j++)
+		//unsigned int temp = array[i];
+		for (j = i + 1; j < size ; j++)
 		{
 			if (array[j] < min)
+			{
 				min = array[j];
+				array[j] = array[i];
+				array[i] = min;
+			}	
 		}
+		/*
 		if (temp > min)
 		{
-			array[i] = array[j];
-			array[j] = temp;
-		}
+			array[i] = min;
+			array[j-i-1] = temp;
+		}*/
+	}
 
 		i = 0;
 		while (i < size)
